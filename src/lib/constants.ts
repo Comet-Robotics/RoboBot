@@ -26,93 +26,38 @@ export const contributors: String[] = [
 ];
 
 export const printers: Record<string, Printer> = {
-	draco: {
-		name: 'Draco', // [name].utd.ms, should be capitalized
+	europa: {
+		name: 'Europa', // [name].utd.ms, should be capitalized
 		ip: 'europa.cometrobotics.org', // Tailscale address
-		model: 'Ender-3 Max', // Model of the printer, manufacturer should not be included unless necessary (ex. Prusa Mini+)
-		apikey: process.env.MAX_APIKEY ?? '', // API key to use REST API
+		model: 'SV06', // Model of the printer, manufacturer should not be included unless necessary (ex. Prusa Mini+)
+		apikey: process.env.EUROPA_API ?? '', // API key to use REST API
 		color: '#31373d', // DEPRECATED! Hex code that matches emoji color on Discord
-		thumbnail: 'https://i.imgur.com/X2aCiYk.png', // Transparent image of the printer (preferably 512x512 max)
+		thumbnail: 'https://cdn.simplyprint.io/i/printer_types/sovol/sv06_plus/product_photo_md.png?643d63a68bb38', // Transparent image of the printer (preferably 512x512 max)
 		enabled: true, // Whether or not the printer should be accessible via BitBot
 		ssl: false, // Whether or not the printer uses an SSL certificate
 		emoji: '<:ender3max:1086129147367145542>' // A 3D printer emoji matching the model of the printer (used in farm status embed)
 	},
-	virgo: {
-		name: 'Virgo',
-		ip: 'virgo',
-		model: 'Ender-3 Pro',
-		apikey: process.env.WHITE_APIKEY ?? '',
+	io: {
+		name: 'Io',
+		ip: 'io.cometrobotics.org',
+		model: 'SV06',
+		apikey: process.env.IO_API ?? '',
 		color: '#e6e7e8',
-		thumbnail: 'https://i.imgur.com/18fhzLl.png',
+		thumbnail: 'https://cdn.simplyprint.io/i/printer_types/sovol/sv06_plus/product_photo_md.png?643d63a68bb38',
 		enabled: true,
-		ssl: true,
+		ssl: false,
 		emoji: '<:ender3:908451113806729296>'
 	},
-	orion: {
-		name: 'Orion',
-		ip: 'orion',
-		model: 'Ender-3 Pro',
-		apikey: process.env.YELLOW_APIKEY ?? '',
+	callisto: {
+		name: 'Callisto',
+		ip: 'callisto.cometrobotics.org',
+		model: 'SV06 Plus',
+		apikey: process.env.CALLISTO_API ?? '',
 		color: '#fdcb58',
-		thumbnail: 'https://i.imgur.com/18fhzLl.png',
-		enabled: true,
-		ssl: true,
-		emoji: '<:ender3:908451113806729296>'
-	},
-	taurus: {
-		name: 'Taurus',
-		ip: 'taurus',
-		model: 'Ender-3 Pro',
-		apikey: process.env.GREEN_APIKEY ?? '',
-		color: '#78b159',
-		thumbnail: 'https://i.imgur.com/18fhzLl.png',
+		thumbnail: 'https://cdn.simplyprint.io/i/printer_types/sovol/sv06_plus/product_photo_md.png?643d63a68bb38',
 		enabled: true,
 		ssl: false,
 		emoji: '<:ender3:908451113806729296>'
-	},
-	pegasus: {
-		name: 'Pegasus',
-		ip: 'pegasus',
-		model: 'Prusa i3 MK3S+',
-		apikey: process.env.PEGASUS_APIKEY ?? '',
-		color: '#aa8ed6',
-		thumbnail: 'https://i.imgur.com/w7fFy1T.png',
-		enabled: true,
-		ssl: false,
-		emoji: '<:prusai3mk3s:1086132774173409281>'
-	},
-	phoenix: {
-		name: 'Phoenix',
-		ip: 'phoenix',
-		model: 'Prusa i3 MK3S+',
-		apikey: process.env.PHOENIX_APIKEY ?? '',
-		color: '#aa8ed6',
-		thumbnail: 'https://i.imgur.com/w7fFy1T.png',
-		enabled: true,
-		ssl: false,
-		emoji: '<:prusai3mk3s:1086132774173409281>'
-	},
-	leo: {
-		name: 'Leo',
-		ip: 'leo',
-		model: 'Prusa Mini+',
-		apikey: process.env.ORANGE_APIKEY ?? '',
-		color: '#f4900c',
-		thumbnail: 'https://i.imgur.com/hFEczfG.png',
-		enabled: true,
-		ssl: false,
-		emoji: '<:prusamini:1086128822702833754>'
-	},
-	hydra: {
-		name: 'Hydra',
-		ip: 'hydra',
-		model: 'QIDI Tech 1 Dual Extruder',
-		apikey: process.env.PURPLE_APIKEY ?? '',
-		color: '#aa8ed6',
-		thumbnail: 'https://i.imgur.com/SAe11rI.png',
-		enabled: true,
-		ssl: false,
-		emoji: '<:qiditech1:1086129706614669435>'
 	}
 };
 
