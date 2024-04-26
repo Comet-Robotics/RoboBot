@@ -57,7 +57,7 @@ export async function getMessage(
 		// Determine availability using constants
 		const printerState = constants.states.get(data.state.toLowerCase());
 
-		if (printerDb.underMaintenance) {
+		if (false) {
 			const reason = printerDb.maintenanceReason;
 			statusEmbed
 				.setTitle('⚠  Maintenance')
@@ -346,14 +346,14 @@ export async function setMaintenance(
 	reason?: string
 ): Promise<boolean> {
 	// Get printer from db
-	let printer = await this.getPrinterFromDb(printerID);
+	// let printer = await this.getPrinterFromDb(printerID);
 
-	// If there is a reason, enable maintenance mode and set reason
-	printer.underMaintenance = reason ? true : false;
-	if (reason) printer.maintenanceReason = reason;
+	// // If there is a reason, enable maintenance mode and set reason
+	// printer.underMaintenance = reason ? true : false;
+	// if (reason) printer.maintenanceReason = reason;
 
-	// Save
-	await printer.save();
+	// // Save
+	// await printer.save();
 
 	// We're done, return true
 	return true;

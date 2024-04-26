@@ -45,8 +45,8 @@ const { DISCORD_TOKEN, MONGODB_SRV, MQTT_HOST, MQTT_USER, MQTT_PASS } =
 import fs = require('fs');
 import read = require('fs-readdir-recursive');
 import { Client, Collection, GatewayIntentBits } from 'discord.js';
-import mongoose = require('mongoose');
-mongoose.set('strictQuery', true);
+// import mongoose = require('mongoose');
+// mongoose.set('strictQuery', true);
 import mqtt = require('mqtt');
 import constants = require('./lib/constants');
 import cron = require('cron');
@@ -125,34 +125,34 @@ client.once('ready', async () => {
 	}, 5 * 60 * 1000);
 
 	// Cron job system
-	fs.readdirSync('./src/jobs')
-		.filter((file: string) => file.endsWith('.ts'))
-		.forEach(async (file: string) => {
-			const job = require(`./jobs/${file}`);
-			// Set a new item in the Collection
-			// With the key as the command name and the value as the exported module
-			const cronJob = new cron.CronJob(
-				job.cron,
-				() => {
-					try {
-						job.action(client);
-					} catch (error) {
-						if (process.env.NODE_ENV === 'production') {
-							Sentry.captureException(error);
-						}
-						console.error(error);
-					}
-				},
-				null,
-				true,
-				'America/Chicago'
-			);
-			cronJob.start();
-			jobs.push(cronJob);
-			if (job.runOnStart) {
-				await job.action(client);
-			}
-		});
+	// fs.readdirSync('./src/jobs')
+	// 	.filter((file: string) => file.endsWith('.ts'))
+	// 	.forEach(async (file: string) => {
+	// 		const job = require(`./jobs/${file}`);
+	// 		// Set a new item in the Collection
+	// 		// With the key as the command name and the value as the exported module
+	// 		const cronJob = new cron.CronJob(
+	// 			job.cron,
+	// 			() => {
+	// 				try {
+	// 					job.action(client);
+	// 				} catch (error) {
+	// 					if (process.env.NODE_ENV === 'production') {
+	// 						Sentry.captureException(error);
+	// 					}
+	// 					console.error(error);
+	// 				}
+	// 			},
+	// 			null,
+	// 			true,
+	// 			'America/Chicago'
+	// 		);
+	// 		cronJob.start();
+	// 		jobs.push(cronJob);
+	// 		if (job.runOnStart) {
+	// 			await job.action(client);
+	// 		}
+	// 	});
 
 	// Update permissions
 	// const guildCommands = await client.guilds.cache
@@ -409,17 +409,17 @@ client.on('interactionCreate', async (interaction: Discord.Interaction) => {
 
 client.login(DISCORD_TOKEN);
 
-mongoose
-	.connect(MONGODB_SRV ?? 'mongodb://localhost:27017/', {
-		useNewUrlParser: true,
-		useUnifiedTopology: true
-	} as mongoose.ConnectOptions)
-	.then(() => {
-		console.log('🟢 Connected to the database.');
-	})
-	.catch((err: any) => {
-		console.log(err);
-	});
+// mongoose
+// 	.connect(MONGODB_SRV ?? 'mongodb://localhost:27017/', {
+// 		useNewUrlParser: true,
+// 		useUnifiedTopology: true
+// 	} as mongoose.ConnectOptions)
+// 	.then(() => {
+// 		console.log('🟢 Connected to the database.');
+// 	})
+// 	.catch((err: any) => {
+// 		console.log(err);
+// 	});
 
 mqttClient.on('connect', async function () {
 	// console.log('🟢 MQTT connected.');

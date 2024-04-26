@@ -28,7 +28,7 @@ export const contributors: String[] = [
 export const printers: Record<string, Printer> = {
 	draco: {
 		name: 'Draco', // [name].utd.ms, should be capitalized
-		ip: 'draco', // Tailscale address
+		ip: 'europa.cometrobotics.org', // Tailscale address
 		model: 'Ender-3 Max', // Model of the printer, manufacturer should not be included unless necessary (ex. Prusa Mini+)
 		apikey: process.env.MAX_APIKEY ?? '', // API key to use REST API
 		color: '#31373d', // DEPRECATED! Hex code that matches emoji color on Discord
