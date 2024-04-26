@@ -324,15 +324,15 @@ export async function getPrinterFromDb(
 ): Promise<printerSchema.IPrinter | undefined> {
 	let printer;
 	try {
-		printer = await printerSchema.Printer.findOne({ id: printerID });
+		// printer = await printerSchema.Printer.findOne({ id: printerID });
 		if (!printer) {
 			let printerData = {
 				id: printerID,
 				underMaintenance: false,
 				watcher: null
 			};
-			printer = await printerSchema.Printer.create(printerData);
-			await printer.save();
+			// printer = await printerSchema.Printer.create(printerData);
+			// await printer.save();
 			return printer;
 		} else return printer;
 	} catch (err) {
