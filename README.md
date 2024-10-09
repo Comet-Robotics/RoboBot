@@ -1,3 +1,5 @@
+# This repository is not used. Check out https://github.com/Comet-Robotics/club-manager for the newest version of RoboBot.
+
 <!-- center image -->
 <p align="center">
     <img src="./docs/images/logo.svg#gh-light-mode-only" height="256px" />
